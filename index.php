@@ -20,6 +20,12 @@
          </p> 
          <p style="background-color: {{color}}; font-size: {{size}}">{{ 100 + 100}}{{tekst}}</p> 
          <p>De naam uit de controller is: {{naamVolledig()}}</p>
+         
+         <ul>
+            <li ng-repeat="x in jsonString">{{x.id}} {{x.firstname}} {{x.infix}}{{x.lastname}} {{x.haircolor}} </li>
+         </ul>
+         <hr>
+               
       </div>
    </body>
 </html>
