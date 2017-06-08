@@ -14,47 +14,37 @@
       <link rel="stylesheet" href="./css/style.css">
    </head>
    <body>
-      <div ng-app='testmodule' ng-controller="testController" ng-init="tekst='Tikkadibooh'">
+      <div class="container" ng-app='testmodule' ng-controller="testController" ng-init="tekst='Tikkadibooh'">
          <p>Voornaam: <input type='text' ng-model="firstname"></p>
          <p>tussenvoegsel: <input type='text' ng-model="infix"></p>
          <p>Achternaam: <input type='text' ng-model="lastname"></p>
          <p>color: <input type='text' ng-model="hairColor"></p>
+
+         <button ng-click="createRecord()">Sla op!</button>
          <p ng-init="firstname='';infix='';lastname='';hairColor=''">
                Mijn naam is: {{firstname}} {{infix}} {{lastname}} en mijn haarkleur is: {{hairColor}}
          </p> 
          <p style="background-color: {{color}}; font-size: {{size}}">{{ 100 + 100}}{{tekst}}</p> 
          <p>De naam uit de controller is: {{naamVolledig()}}</p>
          
-         <ul>
-            <li ng-repeat="x in jsonString">{{x.id}} {{x.firstname}} {{x.infix}}{{x.lastname}} {{x.haircolor}} </li>
-         </ul>
+         
          <table class="table">
             <thead>
                   <tr>
-                        <th>Firstname</th>
-                        <th>Lastname</th>
-                        <th>Email</th>
-                        <th>haircolor</th>
+                        <th>Voornaam</th>
+                        <th>Tussenvoegsel</th>
+                        <th>Achternaam</th>
+                        <th>Haarkleur</th>
                   </tr>
             </thead>
-    <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-      </tr>
-      <tr>
-        <td>Mary</td>
-        <td>Moe</td>
-        <td>mary@example.com</td>
-      </tr>
-      <tr>
-        <td>July</td>
-        <td>Dooley</td>
-        <td>july@example.com</td>
-      </tr>
-    </tbody>
-
+            <tbody>
+              <tr ng-repeat="jsObj in jsonString">
+                <td>{{jsObj.firstname}}</td>
+                <td>{{jsObj.infix}}</td>
+                <td>{{jsObj.lastname}}</td>
+                <td>{{jsObj.haircolor}}</td>
+              </tr>
+            </tbody>
          </table>
          
                

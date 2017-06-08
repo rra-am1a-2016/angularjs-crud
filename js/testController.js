@@ -11,6 +11,12 @@ app.controller("testController", function($scope, $http) {
              $scope.jsonString = response.data;
       });
 
+      $scope.createRecord = function () {
+            alert("Naam en haarkleur: " + $scope.firstname + $scope.infix + $scope.lastname + $scope.hairColor );
+      }
+
+      
+
        $scope.naamVolledig = function () {
          return $scope.firstname + " " + $scope.infix + " " + $scope.lastname;
       };
