@@ -1,5 +1,8 @@
 <?php
-   var_dump($_POST);
+   $data = file_get_contents("php://input");
+   var_dump($data);
+   $data = json_decode($data, true);
+   var_dump($data);
    $serverName = "localhost";
    $userName = "root";/* Naam van de user */
    $password = "";/* Naam van het password */
@@ -13,10 +16,10 @@
                                   `lastname`,
                                   `haircolor`)
                      VALUES       (NULL,
-                                   'Fred', 
-                                   'van', 
-                                   'Harmelen', 
-                                   'yellow')";
+                                   '" . $data["firstname"] ."', 
+                                   '" . $data["infix"] ."', 
+                                   '" . $data["lastname"] ."', 
+                                   '" . $data["haircolor"] ."')";
 
    $result = mysqli_query($conn, $query);
 
