@@ -7,9 +7,16 @@ app.controller("testController", function($scope, $http) {
 
       // Opvragen van data uit de database cR(ead)ud
 
-      $http.get("data.php").then(function (response) {
-             $scope.jsonString = response.data;
-      });
+      $scope.readRecords = function () {
+            $http.get("data.php").then(function (response) {
+                  $scope.jsonString = response.data;
+            });
+      }
+
+      $scope.removeRecord = function (index) {
+            alert("Het id is: " + index);
+      }
+   
 
       $scope.createRecord = function () {
             //alert("Naam en haarkleur: " + $scope.firstname + $scope.infix + $scope.lastname + $scope.hairColor );
@@ -27,6 +34,8 @@ app.controller("testController", function($scope, $http) {
             function (response) {
                   // Als er wel een error is.
             });
+
+            $scope.readRecords();
       }
 
       

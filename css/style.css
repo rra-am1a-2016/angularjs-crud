@@ -2,3 +2,6 @@ body {
   font-family: 'Arvo', serif;
   background-color: #e6e6e6;
 }
+.glyphicon {
+  color: red;
+}

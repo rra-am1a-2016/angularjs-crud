@@ -14,7 +14,8 @@
       <link rel="stylesheet" href="./css/style.css">
    </head>
    <body>
-      <div class="container" ng-app='testmodule' ng-controller="testController" ng-init="tekst='Tikkadibooh'">
+      <div class="container" ng-app='testmodule' ng-controller="testController" ng-init="readRecords();tekst='Hoi'">
+         
          <p>Voornaam: <input type='text' ng-model="firstname"></p>
          <p>tussenvoegsel: <input type='text' ng-model="infix"></p>
          <p>Achternaam: <input type='text' ng-model="lastname"></p>
@@ -31,18 +32,22 @@
          <table class="table">
             <thead>
                   <tr>
+                        <th>ID</th>
                         <th>Voornaam</th>
                         <th>Tussenvoegsel</th>
                         <th>Achternaam</th>
                         <th>Haarkleur</th>
+                        <th></th>
                   </tr>
             </thead>
             <tbody>
               <tr ng-repeat="jsObj in jsonString">
+                <td>{{jsObj.id}}</td>
                 <td>{{jsObj.firstname}}</td>
                 <td>{{jsObj.infix}}</td>
                 <td>{{jsObj.lastname}}</td>
                 <td>{{jsObj.haircolor}}</td>
+                <td><span ng-click="removeRecord(jsObj.id)" class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
               </tr>
             </tbody>
          </table>
