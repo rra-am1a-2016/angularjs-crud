@@ -14,7 +14,20 @@ app.controller("testController", function($scope, $http) {
       }
 
       $scope.removeRecord = function (index) {
-            alert("Het id is: " + index);
+            //alert("Het id is: " + index);
+            $http({    
+                     url: 'deleteRecord.php',
+                     method: 'POST',
+                     data: {id : index},
+                     headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+
+            }).then(function (response){
+                  //alert(response.data);
+            }, 
+            function (response) {
+
+            });
+            $scope.readRecords();
       }
    
 
